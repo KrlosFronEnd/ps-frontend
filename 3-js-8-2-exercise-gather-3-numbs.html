@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="app">
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+
+<script>
+    // 1. En esta sección declarando las variables
+    let a;
+    let b;
+    let c;
+
+    // 2. Estamos inicializando las variables
+    a = prompt("Dame el primer número: ")
+    b = prompt("Dame el segundo número: ")
+    c = prompt("Dame el tercer número: ")
+
+    if (a > b && a > c) {
+        // este bloque {} se ejecuta cuando la expresión
+        // anterior es POSITIVA
+        alert("a es el mayor")
+    } else if (b > c) {
+        alert("b es el mayor")
+    } else {
+        alert("c es el mayor")
+    }
+</script>
+</body>
+</html>

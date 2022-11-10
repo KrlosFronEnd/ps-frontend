@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Contenidos</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container" id="app">
+    <div class="jumbotron">
+        <h1 class="display-4">Curso de Frontend</h1>
+        <p class="lead">
+            Todo el contenido del curso lo tienes organizado en las siguientes clases.
+        </p>
+
+        <hr class="my-2">
+
+        <p class="text-muted">
+            No se te olvide... este contenido es solo para ti, tú lo pagaste, no lo debes compartir.
+        </p>
+    </div>
+
+    <!--<pre class="bg-light p-3"><code>{{ $data }}</code></pre>-->
+
+    <table class="table text-center">
+        <thead>
+        <tr>
+            <th>Día</th>
+            <th>Temática</th>
+            <th>Clase</th>
+            <th>Enlace</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr v-for="c in contents">
+            <td>#{{c.day}}</td>
+            <td>{{ c.thematic }}</td>
+            <td>{{ c.nameClass }}</td>
+            <td>
+                <a v-if="c.pageDetail" :href="c.pageDetail" target="_blank">
+                    Ir a clase
+                </a>
+                <span v-else>
+                    Sin contenido
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--
+Tres temas
+- Objetos
+- Funciones
+- Vue
+-->
+
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contents: [
+                {
+                    day: 1,
+                    thematic: "Contenido General",
+                    nameClass: "Introducción",
+                    pageDetail: null
+                },
+                {
+                    day: 2,
+                    thematic: "HTML",
+                    nameClass: "Sintaxis y etiquetas",
+                    pageDetail: "1-html-1-basic-tags.html"
+                },
+                {
+                    day: 3,
+                    thematic: "HTML",
+                    nameClass: "Tablas",
+                    pageDetail: "1-html-2-tables.html"
+                },
+                {
+                    day: 4,
+                    thematic: "HTML",
+                    nameClass: "Formularios",
+                    pageDetail: "1-html-3-forms.html"
+                },
+                {
+                    day: 5,
+                    thematic: "CSS",
+                    nameClass: "Sintaxis y selectores",
+                    pageDetail: "2-css-1-syntax-selectors.html"
+                }
+            ]
+        }
+    })
+</script>
+</body>
+</html>

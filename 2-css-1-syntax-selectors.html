@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS-2-Syntax-Selectors</title>
+</head>
+<body>
+
+<!-- https://docs.google.com/presentation/d/1pl2JrHa4nnI-6vYYvUmbRwYtXbA9JHDwyvXgTgL_760/edit#slide=id.g141ad9cdfdb_0_80 -->
+
+<!--
+CSS (Cascade Style Sheet)
+Hojas de estilos en cascada
+
+Es un lenguaje de hojas de estilos creado para controlar el aspecto
+o presentación de los documentos electrónicos definidos con HTML.
+
+Se incluye de varias maneras en HTML
+- Archivo externo: etiqueta <link rel="stylesheet" href="css/bootstrap.min.css">
+- Escritura interna en HTML: etiqueta <style></style>
+- Dentro de la etiqueta de apertura, como un atributo <table style="border:1px solid #ddd"></table>
+
+Las hojas de estilos están formadas por declaraciones separadas por punto y coma (;) asociadas a un selector
+Una declaración es un atributo (propiedad) seguido por dos puntos y a continuación el valor de la propiedad.
+
+Para poder escribir CSS, debe existir un elemento HTML para poderle asignar dichos estilos, por eso,
+primero comenzaremos a definir uno:
+-->
+
+<p>Este es un texto a quien se le va a asignar estilos a través de selector de etiqueta.</p>
+
+<p class="text-custom">Este es otro texto que se le va a asignar estilos a través del selector clase</p>
+
+
+<h4>
+    Este es un título
+    <br>
+    <small>
+        que a su vez, tiene un subtítulo, al cual se le va a asignar estilos a través de selector descendente
+    </small>
+</h4>
+
+<div class="text-center">
+    <a href="http://google.com.co" target="_blank" id="unique-link">
+        Soy un enlace único a Google, estilo a través de selector ID
+    </a>
+</div>
+
+<!--
+La sintaxis para escribir código en CSS es la siguiente:
+-->
+<style>
+    /* asignándole estilo a través de selector de tiqueta */
+    p {
+        font-size: 2.5em;
+        color: #6a1a21;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* asignándole estilo a través de selector de etiqueta */
+    h4 {
+        text-align: center;
+    }
+
+    /* asignándole estilo a través de selector de clase */
+    .text-custom {
+        color: #0a58ca;
+    }
+
+    /* asignándole estilo a través de selector descendente */
+    h4 small {
+        font-size: 0.75em;
+        color: #86b7fe;
+    }
+
+    /* asignándole estilo a través de selector por ID */
+    #unique-link {
+        text-transform: uppercase;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    body {
+        width: 30%;
+        margin: 0 auto;
+    }
+</style>
+</body>
+</html>

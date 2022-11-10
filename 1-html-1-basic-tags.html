@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML-1-Basic-Tags</title>
+</head>
+
+<body>
+    <!--
+        HTML está compuesto por un conjunto de etiquetas.
+
+        Las etiquetas son un conjunto de elementos que permiten modelar
+        un sitio web. Ahora, ¿qué se necesita modelar dentro de un sitio web?
+        - Hipervínculos o enlaces (entre páginas internas o externas)
+        - Toda clase de textos (Títulos, parrafos, negritas, cursivas, subrayados, etc...)
+        - Listas para agrupar información(ordenadas o sin orden)
+        - Imágenes (uno de los componentes más utilizados en los sitios web)
+        - Formularios (para captar información del usuario, como mensajes, twits, números de teléfono, etc.)
+     -->
+
+    <!-- Cada lenguaje, para poder manipularse, hay que guiarse de su sintaxis-->
+
+    <!-- 
+        La sintaxis para expresar las etiquetas, está compuesto por: 
+        - <> </>: Símbolos de mayor y menor que para delimitar apertura y cierre de una etiqueta
+        - atributo="valor": Conjunto de atributos con sus respectivos valores. Estos atributos
+            permiten darle más características a una etiqueta, dependiendo de la etiqueta
+            un attributo puede ser obligatorio u opcional.
+        - Contenido: Va dentro de los símbolos de apertura y cierra <tag>CONTENIDO</tag>
+
+        Algunas etiquetas, no necesitan cierre de tiqueta, simplemente porque en su definición
+        no necesitan contenido y por lo tanto, no lo tienen.
+
+
+        DATO IMPORTANTE: Las etiquetas se pueden anidar, es decir, como contenido de una etiqueta
+        puede estar otra etiqueta.
+    -->
+
+    <!-- Ejemplos de etiquetas hipervínculo -->
+    <a href="https://www.google.com/">
+        Este enlace va a ir a la página de Google
+    </a>
+
+    <!-- 
+        Ejemplo de etiqueta de párrafo y dentro, otra etiqueta de hipervínculo 
+        A esto se le llama, una etiqueta anidada o una etiqueta hija.
+    -->
+    <p>
+        Existen unos tipos de enlace que se compartan diferente, cuando les ponemos
+        un atributo adicional, como por ejemplo,
+        <a href="https://www.google.com/" target="_blank">
+            este hipervínculo
+        </a>
+    </p>
+
+    <!--
+        Ejemplo de etiqueta que no tiene cierre 
+        La siguiente etiqueta solo crea una línea horizontal
+    -->
+    <hr>
+
+    <!--
+        Ejemplo del contenido que normalmente lleva una página web
+    -->
+
+    <nav>
+        <!-- Este hipervínculo va a redireccionar al archivo index.html -->
+        <a href="index.html">
+            Concesionario Pepe
+        </a>
+
+        <!-- 
+            Para organizar los menús de las páginas
+            se suele organizarlo a través de una lista desorganizada
+            y dentro de cada ítem, se pone como hijo, un hipervínculo
+            que normalmente permite navegar entre diferentes páginas.
+        -->
+        <ul>
+            <li>
+                <a href="index.html">
+                    Inicio
+                </a>
+            </li>
+            <li>
+                <a href="news-vehicles.html">
+                    Vehículos Nuevos
+                </a>
+            </li>
+            <li>
+                <a href="used-vehicles.html">
+                    Vehículos Usados
+                </a>
+            </li>
+            <li>
+                <a href="workshop.html">
+                    Taller
+                </a>
+            </li>
+            <li>
+                <a href="spare-parts-and-accessories.html">
+                    Repuestos y Accesorios
+                </a>
+            </li>
+            <li>
+                <a href="contact.html">
+                    Contacto
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- 
+        Con la etiqueta header podemos encapsular un encabezado
+        y dentro, poner un título principal.
+    -->
+    <header>
+        <h1>
+            Bienvenido al concesionario Pepe
+        </h1>
+    </header>
+
+    <!--
+        Luego, la mayoría de sitios tiene dos secciones distribuidas en 80%, 
+        a esto se le conoce como sección de la página principal
+        y la otra parte, el 20%, se le conoce como sección secundaria.
+    -->
+    <section>
+        <!-- 
+            Normalmente dentro de la sección principal tenemos muchos artículos
+            con la misma estructura.
+        -->
+
+        <article>
+            <!-- 
+                Podemos poner un hipervínculo y como contenido del mismo, una imagen 
+                Cuando ponemos al atributo href con el valor "#!" significa que no a ver
+                ver ninguna redicción a otro sitio.
+                Esto normalmente se usa temporalmente en el diseño del sitio mientras
+                se obtiene la información de destino.
+            -->
+            <a href="#!">
+                <img src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." />
+            </a>
+
+            <h2>
+                Post Title
+
+                <!--
+                    Una etiqueta de span sirve para agrupar un elementos
+                    con el fin de posteriormente, agregar características visuales
+                    a través de CSS, por ejemplo, decirle solo que lo que esté contenido
+                    en esta etiqueta, sea cursiva y que el color del texto sea gris.
+                -->
+                <span>
+                    January 1, 2022
+                </span>
+            </h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque,
+                nulla.
+            </p>
+            <a href="#!">Read more</a>
+        </article>
+    </section>
+
+    <!--
+        En la sección secundaria normalmente se coloca contenido transversal al sitio
+        Por ejemplo, aca se va a poner listado de categorías de los artículos que se
+        presentan en el sitio.
+    -->
+    <aside>
+        <div>
+            Categories
+        </div>
+
+        <ul>
+            <li>
+                <a href="#!">
+                    Web Design
+                </a>
+            </li>
+            <li>
+                <a href="#!">
+                    HTML
+                </a>
+            </li>
+            <li>
+                <a href="#!">
+                    Freebies
+                </a>
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <a href="#!">
+                    JavaScript
+                </a>
+            </li>
+            <li>
+                <a href="#!">
+                    CSS
+                </a>
+            </li>
+            <li>
+                <a href="#!">
+                    Tutorials
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+
+    <!-- 
+        Más contenido acá:
+        - Intro a HTML: https://www.youtube.com/watch?v=QwMlgfMK6fQ
+        - Etiquetas HTML: https://www.youtube.com/watch?v=GucaPbn9Cf8
+        - Enlaces: https://www.youtube.com/watch?v=uphhHrkRLQA
+        - Listas: https://www.youtube.com/watch?v=TWeV5D9RHg0
+        - Imágenes: https://www.youtube.com/watch?v=57kj8mKpDV8
+    -->
+</body>
+
+</html>

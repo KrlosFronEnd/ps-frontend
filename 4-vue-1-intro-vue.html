@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<!--
+    ¿Qué es Vue?
+    https://lenguajejs.com/vuejs/introduccion/que-es-vue/
+
+    Descargar Vue: https://es.vuejs.org/js/vue.js
+    Descargar Bootstrap: https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css
+-->
+
+<div id="app">
+    <h1>
+        Bienvenido a tu clase de Vue {{ name }}
+    </h1>
+
+    <p>Sabes que te llamas {{ name }} pero si quieres, cambia tu nombre abajo.</p>
+
+    <label for="name">
+        Dame tu nombre
+    </label>
+    <input type="text" id="name" v-model="name">
+
+
+    <hr>
+
+
+    <p>
+        Contador de votos: {{ contadorDeVotos }}
+    </p>
+
+    <button v-on:click="votos">
+        Agregar voto
+    </button>
+
+    <hr>
+
+
+    <label for="name_task">
+        Escribe una tarea
+    </label>
+    <input type="text" id="name_task" v-model="nameTask">
+
+    <button v-on:click="addTask">
+        Agregar tarea
+    </button>
+
+    <ul>
+        <li v-for="t in listaDeQueHaceres">
+            {{ t }}
+        </li>
+    </ul>
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            name: "sr Carlos Martinez",
+            contadorDeVotos: 0,
+
+            nameTask: "",
+            listaDeQueHaceres: []
+        },
+        methods: {
+            votos() {
+                this.contadorDeVotos++
+            },
+            addTask() {
+                this.listaDeQueHaceres.push(this.nameTask)
+                this.nameTask = ""
+            }
+        }
+    })
+</script>
+</body>
+</html>

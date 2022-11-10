@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS-7-Ejercicio-1-Mototaxi</title>
+</head>
+
+<body>
+    <script>
+        // Declaración y asignación de constantes
+        const NOT_FOUND_CUSTOMER = 0
+        const FOUND_CUSTOMER = 1
+
+        //1. Declaración de variables
+
+        // la cantidad de dinero con la que inicia el día
+        let bolsillo
+
+        // la cantidad de dinero de cuota por alquiler de la moto
+        let valorCuota
+
+        // la cantidad de dinero que desea ganar el conductor
+        let miSalario
+
+        // la cantidad que debe recaudar en el día
+        let baseDiaria
+
+        // esta variable permitirá saber si encontró o no encontró cliente
+        let foundCustomer
+
+        /* 
+        Contendrá la respuesta del cliente respecto a la distancia 
+        Sus valores pueden ser: "cerca", "medio", "lejos"
+        */
+        let distancia
+        let valorCarrera
+
+        //2. Asignación de valores
+        bolsillo = prompt("¿Con cuánto arrancas?")
+        // se hace casting de string a int
+        bolsillo = parseInt(bolsillo)
+        
+        valorCuota = prompt("¿Cuánto debes dar hoy?")
+        // se hace casting de string a int
+        valorCuota = parseInt(valorCuota)
+        
+        miSalario = prompt("¿Cuánto quiero ganar hoy?")    
+        // se hace casting de string a int
+        miSalario = parseInt(miSalario)
+
+        baseDiaria = valorCuota + miSalario
+
+        console.log("Encendiendo motores")
+        console.log("Estacionarse")
+
+        while (bolsillo < baseDiaria) {
+            // 2. Asignando
+
+            /*
+            NOT_FOUND_CUSTOMER significa que iniciará el proceso
+            dando a entender que no ha encontrado un cliente 
+            */
+            foundCustomer = NOT_FOUND_CUSTOMER
+
+            /*
+            while significa CICLO
+            Aquí estamos repitiendo el proceso de preguntarle
+            al conductor si ya encontró un pasajero
+            Sino lo encuentra, sigue preguntando, hasta que lo encuentre
+            Comparando la variable que captura la respuesta del conductor
+            con la constante que indica que NO encontró
+            */
+            while (foundCustomer === NOT_FOUND_CUSTOMER) {
+                foundCustomer = prompt(
+                    "¿Encontraste un pasajero? (Sí=1 y No=0)"
+                )
+            }
+
+            // ToDo, mejorar la manera de preguntarle esto al usuario
+
+            // En distancia: "cerca", "medio" y "lejos"
+            distancia = prompt(
+                "¿Cuál es la distancia? escribe cerca, medio o lejos"
+            )
+
+            if (distancia === "cerca") {
+                valorCarrera = 4_000
+            } else if (distancia === "medio") {
+                valorCarrera = 6_000
+            } else {
+                valorCarrera = 8_000
+            }
+
+            console.log("Lo llevo")
+            console.log("El man me pagó")
+
+            bolsillo = bolsillo + valorCarrera
+            console.log("Tu bolsillo actual tiene: ", bolsillo)
+        }
+
+        /*
+        Diagrama de flujo y Código en JavaScript 
+        para los siguientes ejercicios
+
+        1. Dividir dos números.
+        2. Leer 3 números y determinar el mayor
+        3. Cálcular si un número es par o impar
+
+        Tipos de variable (Arreglos) y Ciclo For
+        */
+    </script>
+</body>
+</html>

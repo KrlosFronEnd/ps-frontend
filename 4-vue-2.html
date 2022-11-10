@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue # 2</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+<div id="cualquierIdentificadorQueYoQuieraPoner">
+
+
+    <input type="text" v-model="num1" placeholder="Num1">
+    <input type="text" v-model="num2" placeholder="Num2">
+
+    <div v-if="num1 != 0 && num2 != 0">
+        <p v-if="num1 > num2">
+            El número mayor es {{ num1 }}
+        </p>
+        <p v-else>
+            El número {{ num2 }} es mayor
+        </p>
+    </div>
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: "#cualquierIdentificadorQueYoQuieraPoner",
+        data: {
+            num1: 0,
+            num2: 0
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>JS-6-Funciones</title>
+</head>
+<body>
+
+<script>
+    /*
+     Las funciones es el mecanismo con el cual se pueden agrupar procedimientos repetitivos
+     que obtienen datos para devolver datos
+     Por ejemplo:
+     - Calcular un valor (ejemplo: PUM a un producto) mililitros / precio |
+     - Darle formato a un precio ($, R$, £ y €)
+     - Calcular precio total (envío, impuesto, precio)
+     */
+
+    /*
+     Momentos de una función
+     - Declaración: donde se especifica qué necesita (parámetros) y qué se va a hacer (bloque de declaración)
+        - palabra reservada => function
+        - Nombre con el cual quiero identificarla => calcularPrecioTotal, formatearPrecio, calcularPUM
+        - Lista de parámetros => paréntesis y parámetros (costoDeEnvio, impuesto, precio)
+        - bloque de declaración => {}
+        - valor de retorno (si aplica) (a través de la palabra reservada return)
+     - Llamado: donde se especifica con qué valores va a correr al función
+     */
+
+    // Declaración
+    function calcularPrecioTotal(costoDeEnvio, porcentajeDeImpuesto, precioBruto, comision) {
+        return costoDeEnvio + ((porcentajeDeImpuesto / 100) * precioBruto) + precioBruto + comision
+    }
+
+
+    // Llamado de mi función
+    // 3000, 19, 1_061_500 => 50_000+((19/100)*850_000)+850_000
+    console.log(
+        calcularPrecioTotal(50_000, 19, 850_000, 3_000),
+        calcularPrecioTotal(30_000, 7, 300_000, 3_000),
+        calcularPrecioTotal(30_000, 7, 300_000, 3_000),
+        calcularPrecioTotal(30_000, 7, 300_000, 3_000),
+    )
+
+    /*Ejercicio:
+    Cree 3 funciones,
+    1. Debe recibir dos números y devolver cuál es el mayor, si son iguales, devuelva 0
+    2. Debe recibir un nombre (string) y retornar un mensaje de bienvenida por consola: "Hola, eres bienvenido NOMBRE"
+    3. Debe recibir dos números y un string
+    con los siguientes posibles valores(SUM, RES, MUL, DIV)
+    debe retornar el valor de la operación respectiva al parámetro enviado
+    Si se ingresa un string con un valor no conocido, debe retornar 0.
+
+    cal(n1, n2, op)
+    cal(1, 3, "RES")
+    */
+
+    // Ejercicio # 1
+
+    // Mi declaración de función
+    function determinarMayorDosNumeros(n1, n2) {
+        if (n1 === n2) {
+            return 0
+        } else if (n1 > n2) {
+            return n1
+        } else {
+            return n2
+        }
+    }
+
+    // El llamado de mi función
+    console.log(determinarMayorDosNumeros(4, 7))
+    console.log(determinarMayorDosNumeros(8, 3))
+    console.log(determinarMayorDosNumeros(6, 6))
+
+
+    // Ejercicio # 2
+    function saludar(nombre) {
+        console.log("Hola, eres bienvenido " + nombre)
+    }
+
+    saludar("Andrés")
+    saludar("Edwin")
+
+    // Ejercicio #3
+    function calculador(num1, num2, operacion) {
+        if (operacion === "SUM") {
+            return num1 + num2
+        } else if(operacion === "RES") {
+            return num1 - num2
+        } else if (operacion === "MUL") {
+            return num1 * num2
+        } else if (operacion === "DIV") {
+            if (num2 === 0) {
+                return 0
+            }
+
+            return num1 / num2
+        } else {
+            return 0
+        }
+    }
+
+    console.log(calculador(1, 2, "SUM"))
+    console.log(calculador(1, 2, "RES"))
+    console.log(calculador(1, 2, "MUL"))
+    console.log(calculador(1, 2, "DIV"))
+    console.log(calculador(1234, 2234, "Modulo"))
+</script>
+
+</body>
+</html>

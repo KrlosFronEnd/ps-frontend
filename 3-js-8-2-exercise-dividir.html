@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS-7-Ejercicio-2-Dividir</title>
+</head>
+<body>
+    <script>
+        /*
+        Diagrama de flujo
+        https://app.diagrams.net/#G1IsOFZu4taYQC3DW-RJf7KTTHQBtxbqpi
+        */
+
+        // Obtenemos el número a través de la función prompt
+        let num1 = parseFloat(prompt("Dame el número 1: "))
+        let num2 = parseFloat(prompt("Dame el número 2: "))
+
+        if (num2 === 0) {
+            alert("No puedo dividir en cero")    
+        } else {
+            let result = num1 / num2
+            alert("El resultado es: " + result)
+        }
+
+        /*
+        Definiciones:
+        función: extracto de código agrupado a manera de fórmula
+        que realiza un determinado proceso a través de entrada 
+        y retorna una determinada salida.
+
+        Función prompt: despliega una ventana modal donde solicita
+        información al usuario final, 
+        Recibe un string|texto, con el texto informativo 
+        que se le mostrará al usuario final
+
+        Función alert: despliega una ventana modal donde
+        se muestra información al usuario final.
+        Recibe un string|texto, con el texto informativo 
+        que se le mostrará al usuario final
+        */
+    </script>
+</body>
+</html>

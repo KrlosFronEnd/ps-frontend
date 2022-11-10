@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+}
+
+nav {
+    background-color: #d0006f;
+
+    
+
+    border-width: 20px;
+    border-style: solid;
+    border-color: #333;
+
+    margin: 0 auto;
+
+    /* Display: block*/
+    /* Display: inline */
+    height: auto;
+    color: white;
+}
+
+a {
+    background-color: #691bd2;
+}
+
+
+section {
+    background-color: #691bd2;
+    width: 100px;
+}
+
+h1, h2, h3, h4, h5, h6, p, em {
+    color: white;
+}
+
+nav img {
+    border-radius: 50%;
+    width: 100%;
+}
+
+section img {
+    border-radius: 50%;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+h3 {
+    font-size: 0.75em;
+}
+
+.product-box {
+    
+}
+
+.product-image {
+    display: block;
+    margin: 0 auto;
+    height: 100px;
+    margin-bottom: 5px;
+}
+
+.product-name {
+    display: block;
+    height: 50px;
+    text-align: center;
+    font-size: 0.80em;
+    line-height: 15px;
+    text-decoration: none;
+    color: #000;
+}
+
+.product-unit {
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 0.75em;
+    color: #444;
+}
+
+.product-price-other {
+    display: block;
+    height: 40px;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 0.65em;
+    color: #691bd2;
+}
+
+.product-price {
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.product-special-price {
+    color: #d0006f;
+}
+
+.product-price del {
+    color: #888;
+}
+
+.product-price small {
+    display: block;
+    text-align: center;
+    font-size: 0.6em;
+    color: #888;
+}
+
+.product-btn-add {
+    width: 100%;
+    margin-top: 5px;
+    font-size: 0.6em;
+    font-weight: bold;
+}

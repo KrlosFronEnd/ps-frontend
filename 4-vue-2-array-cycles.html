@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head> 
+<body>
+    <div id="app" class="container">
+
+        <h1>Mis Canciones Favoritas</h1>
+
+        <div class="form-group">
+            <label for="new-song">
+                Nombre de su canción
+            </label>
+            <input type="text" class="form-control" v-model="newSong" v-on:keyup.enter="addSong" placeholder="Escribe aquí el nombre de la canción">
+        </div>
+
+        <p v-if="songs.length == 0" class="muted text-gray">
+            No has creado ninguna canción
+        </p>
+
+        <ul class="list-group">
+            <li v-for="song in songs" class="list-group-item">
+                {{ song }}
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue
+
+        /*
+        - Arrays
+        - Object
+        - Ciclo For
+
+
+        - Ejemplo: 
+        */
+       
+        createApp({
+            data() {
+                return {
+                    newSong: "",
+                    songs: [],
+                }
+            },
+            methods: {
+                addSong() {
+                    this.songs.push(this.newSong)
+                    this.newSong = ""
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

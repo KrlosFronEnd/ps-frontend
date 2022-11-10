@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JS-5-Ciclo For</title>
+</head>
+
+<body>
+
+<script>
+    /*
+    Arreglos
+    Ciclo: For
+    */
+
+    // Actualmente, hemos visto estos tipos de variables
+    let numb = 5
+    let message = "¡Bienvenido!"
+    let isOpen = true
+
+    // Arreglos
+
+    // Los arreglos son colecciones de variables de un mismo contexto: nombres.
+    // Normalmente de un mismo tipo
+
+    // El orden de los elementos va desde el primer ingreso hasta el final
+    // Se establece implícitamente un índice para cada dato
+    let namesOfFutureDevelopers = [
+        "Juan", // 0
+        "Kevin", // 1
+        "Tatiana", // 2
+        "Daniel", // 3
+        "Edwin", // 4
+        "Andrés", // 5
+        "Carlos", // 6
+        "Victor", // 7
+    ];
+
+    // también se pueden hacer listas de números
+    let ages = [19, 30, 25, 27, 19, 24, 36, 41];
+
+    let nameJuan = "Juan"
+    let nameKevin = "Kevin"
+    //...
+
+    console.log("Hola ", nameJuan)
+    console.log("Hola ", namesOfFutureDevelopers[0])
+    console.log("Hola ", namesOfFutureDevelopers[4])
+    console.log("Hola ", namesOfFutureDevelopers[6])
+
+    console.log(namesOfFutureDevelopers)
+    console.log(ages)
+
+    // con .length puedo saber cuántos ítems tiene la lista
+    console.log(namesOfFutureDevelopers.length)
+
+    // para agregar un nuevo elemento a la lista
+    // a través de la función .push(nuevoItem) puedo agregar un nuevo ítem
+    namesOfFutureDevelopers.push("Kennit")
+    ages.push(25)
+
+    console.log(namesOfFutureDevelopers)
+    console.log(ages)
+
+    // para eliminar el último elemento de la lista, se usa la función .pop()
+    namesOfFutureDevelopers.pop()
+    ages.pop()
+
+    console.log(namesOfFutureDevelopers)
+    console.log(ages)
+
+    // para eliminar un ítem específico se utiliza .splice(desdeDonde, numeroDeItems)
+    namesOfFutureDevelopers.splice(6, 1)
+
+    console.log(namesOfFutureDevelopers)
+    console.log(ages)
+
+
+    // Ciclo: for, se repiten hasta que se cumple una condición.
+    // Un ciclo for tiene: inicio, condición final y un incremento
+
+    // imprimir en la consola (console.log(numero)), del 1 al 5
+    // caminar al hotel después que pases 5 casas
+    for (let numbHome = 1; numbHome <= 5; numbHome++) {
+
+        console.log("Vas por la casa", numbHome)
+
+        if (numbHome === 5) {
+            console.log("llegué al hotel")
+        }
+
+    }
+
+
+    // Mezclar: arreglos con ciclos:for
+    // Darle un saludo de Bienvenida a todos los queridos estudiantes
+
+    // Inicio => declara variable: let i 0
+    // Condición Final: hasta donde recorre el arreglo: 7
+    // Incrementar: i lo incremento en 1
+    for (let i = 0; i < namesOfFutureDevelopers.length; i++) {
+        console.log("Hola querido estudiante", namesOfFutureDevelopers[i]);
+    }
+
+    for (let i in namesOfFutureDevelopers) {
+        console.log("Hola querido estudiante", namesOfFutureDevelopers[i]);
+    }
+</script>
+</body>
+</html>

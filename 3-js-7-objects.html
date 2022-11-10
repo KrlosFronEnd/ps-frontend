@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>JS-Objetos</title>
+</head>
+<body>
+<script>
+    /*
+    Concepto de Objeto: es un conjunto de datos relacionados y/o funcionalidad (que generalmente consta de algunas
+    variables y funciones, que se denominan propiedades y métodos cuando están dentro de objetos).
+     */
+
+    // Como el objeto, a final de cuentas, es un tipo de variable, debes primero definir nuestra variable
+    let person = {}
+    // En la línea de arriba, estamos definiendo un objeto vacío, sin propiedades ni métodos
+
+    // voy a definir un string, kruz, utilizo comillas dobles
+    let username = "kruz"
+    //voy a definir un número
+    let age = 18
+    let denominador = 5
+    let divisor = 3
+    let resultado = denominador / divisor
+    // voy a definir un booleano en verdadero
+    let rain = true
+    // voy a definir un arreglo
+    let deportes = []
+
+    // voy a definir un arreglo de tres marcas de carros // colecciones de un tipo de dato, string
+    let marcaDeCarros = ["Mazda", "Toyota", "Suzuki"]
+    // un arreglo de string
+
+    // live programing
+
+    // voy a definir un arreglo de 3 notas de los parciales de un curso
+    let notasParciales = [4, 2, 4.5]
+
+    // voy a definir un objeto con tres propiedades
+    let camisa = {
+        color: "azul",
+        tipo: "corta",
+        tela: "gamuza",
+        precio: 20_000
+    }
+
+
+
+    // voy a definir un arreglo de 2 ítems que
+    // tenga cada uno un objeto con dos propiedades
+
+    // un conjunto de casas (2),
+    // (2 características) cada una con un número de habitaciones y número de plantas
+    let  casas = [
+        {
+            numeroDeHabitaciones: 3,
+            tipoTecho: "zinc"
+        },
+        {
+            numeroDeHabitaciones: 2,
+            tipoTecho: "palma"
+        }
+    ]
+
+    // que es la variable casas: un arreglo de objetos
+
+    // Ahora vamos a definir un objeto y asignarle propiedades y métodos
+    let human = {
+        address: {},
+        name: "Andrea",
+        lastname: "Estrada",
+        birthdate: "1999-04-19",
+        gender: "feminine",
+        isMarried: true,
+        favorite: {
+            movies: ["Narnia", "La Cabaña"],
+            series: ["Yo soy Betty, la fea", "Grey's Anatomy"],
+            hobbies: ["Ver Atardeceres"],
+        },
+        greet: function () {
+            return "Hola, soy " + this.name + " espero que estés bien."
+        },
+        getAge: function () {
+            let today = new Date()
+            let birthDate = new Date(this.birthdate)
+            let age = today.getFullYear() - birthDate.getFullYear();
+
+            let m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            return age;
+        }
+    }
+
+    // Luego de declarar el objeto human, puedo tener acceso a sus propiedades, de la siguiente manera:
+    console.log(human.greet()) // hacemos un llamado a un método dentro del objeto y lo mostramos en consola
+    console.log("Mi apellido es:", human.isMarried,) // obtenemos el apellido, es decir, "Estrada", y lo mostramos en consola
+    console.log("Mi edad es:", human.getAge()) // obtenemos el apellido, es decir, "Estrada", y lo mostramos en consola
+
+    console.log("Mis películas favoritas son:")
+    // podemos recorrer e imprimir por consola las películas favoritas
+    for (const movie of human.favorite.movies) {
+        console.log("- " + movie)
+    }
+
+    console.log("Mis series favoritas son: ")
+    // podemos recorrer e imprimir por consola las series favoritas
+    for (const serie of human.favorite.series) {
+        console.log("- " + serie)
+    }
+
+    /*
+    Listo, luego de entender que... puedo tener objetos con propiedades (variables) y métodos (funciones)
+    Puedo mezclar ese concepto con otro... por ejemplo, el concepto de las colecciones, es decir, los arreglos.
+     */
+
+    // Anteriormente, habíamos comentado que para definir un arreglo, necesitamos los corchetes []
+    // por ejemplo: el siguiente arreglo es de string y contiene los nombres de estudiantes
+    let studentFrontend = [
+        "Edwin",
+        "Victor",
+        "Juan",
+        "Carlos",
+        "Tatiana",
+        "Daniel",
+        "Andrés",
+        "Kevin",
+    ]
+
+    /*
+     De igual forma que tengo una colección del tipo de dato
+     string (cadena de texto, es decir lo que va dentro de comillas dobles:"")
+     También puedo tener una colección del tipo de dato objeto, para ampliar la información
+     Ahora no solo tengo el nombre, sino también la edad
+     */
+    let studentFrontDetail = [
+        {
+            name: "Edwin",
+            edad: 19
+        },
+        {
+            name: "Victor",
+            edad: 41
+        },
+        {
+            name: "Juan",
+            edad: 19
+        },
+        {
+            name: "Carlos",
+            edad: 36
+        },
+        {
+            name: "Tatiana",
+            edad: 25
+        },
+        {
+            name: "Daniel",
+            edad: 27
+        },
+        {
+            name: "Andrés",
+            edad: 24
+        },
+        {
+            name: "Kevin",
+            edad: 29
+        },
+    ]
+
+    // PARA TENER MUY PRESENTE, no confundir arreglos [] con objetos {}
+    // Arreglos => Corchetes [] (listas o colecciones)
+    // Objetos => Llaves {} (conjunto de propiedades y métodos)
+</script>
+</body>
+</html>

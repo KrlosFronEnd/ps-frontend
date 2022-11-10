@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML-2-Tables</title>
+</head>
+
+<body>
+<!--
+    Una de las maneras más utilizadas para organizar información
+    son las tablas. Vemos esto por ejemplo en un archivo excel, gracias
+    a las columnas y las filas, podemos organizar grandes cantidades de información.
+-->
+
+<!--
+    Las etiquetas necesarias para diseñar una tabla básica, son las siguientes
+    - table
+    - tr
+    - td
+
+    Estás etiquetas deben seguir un orden específico para delimitar desde qué punto
+    empieza la tabla hasta el punto donde termina.
+
+    Estas tablas están formadas de la siguiente manera.
+    Primero van las filas y dentro de cada fila, hay un determinado número de columnas
+    Inicialmente se debe respetar que por cada fila, exista el mismo número de columnas.
+-->
+
+<!--
+    Ejemplo (se agregará el atributo border con valor "1" para evidenciar los contenidos)
+-->
+<table border="1">
+    <!-- a esta primera fila, se le conoce como fila de encabezamiento-->
+    <tr>
+        <td>
+            Nombre
+        </td>
+        <td>
+            Apellido
+        </td>
+        <td>
+            Edad
+        </td>
+    </tr>
+    <!-- de aquí para abajo, vienen las filas de contenido-->
+    <tr>
+        <td>
+            Kennit
+        </td>
+        <td>
+            Ruz
+        </td>
+        <td>
+            25
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Andrea
+        </td>
+        <td>
+            Estrada
+        </td>
+        <td>
+            23
+        </td>
+    </tr>
+</table>
+
+<br>
+<hr>
+<br>
+
+<!--
+    Ahora, los elementos que hemos visto anteriormente (textos, imágenes y listas)
+    se pueden agregar en las tablas, por ejemplo.
+-->
+
+<table border="1">
+    <tr>
+        <td>
+            Imagen
+        </td>
+        <td>
+            Producto
+        </td>
+        <td>
+            Códigos
+        </td>
+        <td>
+            Inventario
+        </td>
+    </tr>
+
+    <!-- 1º producto -->
+    <tr>
+        <td>
+            <img src="https://static.merqueo.com/images/products/small/6b6535cc-f83c-493f-886f-af65ae88740c.png">
+        </td>
+        <td>
+            #1 Leche Entera Alpina Bolsa
+            <!-- Etiqueta de salto de línea: br de break (salto en inglés)-->
+            <br>
+            <!-- Etiqueta para negrita b de bold (negrita en inglés) -->
+            <b>
+                Dep:
+            </b>
+            #20 Lácteos y Huevos
+            <br>
+            <b>
+                Shelf:
+            </b>
+            #18 Leches
+        </td>
+        <td>
+                <span>
+                    ID: 28144
+                </span>
+            <br>
+            <span>
+                    ProductID: 173985
+                </span>
+            <br>
+            <span>
+                    DepartmentID: 20
+                </span>
+        </td>
+        <td>
+            Inventario Actual: <b>39</b> unds
+        </td>
+    </tr>
+
+    <!-- 2º producto -->
+    <tr>
+        <td>
+            <img src="https://static.merqueo.com/images/products/small/50b65414-3a0b-46cf-b963-0d12c0c3db3e.jpg">
+        </td>
+        <td>
+            #2 Leche Entera Alpina Caja
+            <br>
+            <b>
+                Dep:
+            </b>
+            #20 Lácteos y Huevos
+            <br>
+            <b>
+                Shelf:
+            </b>
+            #18 Leches
+        </td>
+        <td>
+                <span>
+                    ID: 33396
+                </span>
+            <br>
+            <span>
+                    ProductID: 179713
+                </span>
+            <br>
+            <span>
+                    DepartmentID: 20
+                </span>
+        </td>
+        <td>
+            Inventario Actual: <b>43</b> unds
+        </td>
+    </tr>
+
+    <!-- 3º producto -->
+    <tr>
+        <td>
+            <img src="https://static.merqueo.com/images/products/small/50b65414-3a0b-46cf-b963-0d12c0c3db3e.jpg">
+        </td>
+        <td>
+            #3 Leche Deslactosada Alpina 6 und
+            <br>
+            <b>
+                Dep:
+            </b>
+            #20 Lácteos y Huevos
+            <br>
+            <b>
+                Shelf:
+            </b>
+            #18 Leches
+        </td>
+        <td>
+                <span>
+                    ID: 27441
+                </span>
+            <br>
+            <span>
+                    ProductID: 1368
+                </span>
+            <br>
+            <span>
+                    DepartmentID: 20
+                </span>
+        </td>
+        <td>
+            Inventario Actual: <b>264</b> unds
+        </td>
+    </tr>
+</table>
+</body>
+
+</html>
