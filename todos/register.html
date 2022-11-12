@@ -30,6 +30,7 @@ por eso pongo el #
         <input type="text"
                id="full_name"
                placeholder="Ingres su nombre completo"
+               v-model="fullName"
         >
 
         <br><br>
@@ -38,6 +39,7 @@ por eso pongo el #
         <input type="email"
                id="email"
                placeholder="Ingrese su correo electrónico"
+               v-model="email"
         >
 
         <br><br>
@@ -45,13 +47,17 @@ por eso pongo el #
         <label for="password">Contraseña</label>
         <input type="password"
                id="password"
+               ref="password"
                placeholder="Ingrese contraseña"
+               v-model="password"
         >
 
         <br><br>
 
         <button type="button" v-on:click="showPassword()">
-            Mostrar contraseña
+            <span v-if="shownPasswords">Ocultar</span>
+            <span v-else>Mostrar</span>
+            contraseña
         </button>
 
         <br><br>
@@ -59,12 +65,16 @@ por eso pongo el #
         <label for="confirm_password">Confirmar Contraseña</label>
         <input type="password"
                id="confirm_password"
+               ref="confirm_password"
                placeholder="De nuevo contraseña"
+               v-model="confirmPassword"
         >
+
+        <span v-if="password !== confirmPassword && confirmPassword !== ''">Las contraseñas no coinciden</span>
 
         <br><br>
 
-        <button type="submit">
+        <button type="submit" v-bind:disabled="password !== confirmPassword">
             Registrarme
         </button>
     </form>
@@ -89,18 +99,42 @@ al momento de accionar, debe cambiar el texto del botón por ocultar contraseña
 <script>
     // para crear una app en Vue debo hacerlo de la siguiente manera
     // Vue() es una función que recibe un parámetro (variable) de tipo objeto {}
-    new Vue({
+    let app = new Vue({
         // uno de las propiedades necesarias para vue, es la propiedad "el"
         // "el" signifca el contexto de HTML donde se va a conectar la app de Vue
 
         // vamos a colocar el selector + el identificador del contenedor
         // donde se va a ejecutar Vue
         el: '#my_application',
+        // data es mi modelo de datos de mi aplicación
+        data: {
+            shownPasswords: false,
 
+            fullName: '',
+            email: '',
+
+            password: '',
+            confirmPassword: '',
+        },
         // las funcionalidades van dentro de la propiedad "methods"
         methods: {
             showPassword: function () {
-                console.log("Debo permitir mostrar el contenido de las contraseñas")
+                this.shownPasswords = !this.shownPasswords
+
+                if (this.shownPasswords) {
+                    this.$refs.password.type = 'text'
+                    this.$refs.confirm_password.type = 'text'
+                    return
+                }
+
+                this.$refs.password.type = 'password'
+                this.$refs.confirm_password.type = 'password'
+            },
+            sendDataToBackend: function() {
+                console.log("La información del usuario se envió al backend")
+                console.log(this.fullName)
+                console.log(this.email)
+                console.log(this.password)
             }
         }
     })
