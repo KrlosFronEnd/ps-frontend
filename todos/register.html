@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<h1>
-    Mi lista de sueños
-</h1>
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Mi lista de sueños</a>
 
-<ul>
-    <li>
-        <a href="index.html">Inicio</a>
-    </li>
-    <li>
-        <a href="my-list.html">Mi lista</a>
-    </li>
-    <li>
-        <a href="register.html">Registrarme</a>
-    </li>
-    <li>
-        <a href="login.html">Iniciar Sesión</a>
-    </li>
-</ul>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="my-list.html">Mi Lista</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">Registrarme</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <hr>
 
@@ -41,61 +50,68 @@ donde serán procesados, en este caso
 aún no sé a donde van a ser enviados
 por eso pongo el #
 -->
-<div id="my_application">
+<div id="my_application" class="container">
     <h2>Las tareas del futuro Frontend</h2>
 
     <h3>Crea tu cuenta aquí!</h3>
 
-    <form action="#" autocomplete="off">
-        <label for="full_name">Nombre completo</label>
-        <input type="text"
-               id="full_name"
-               placeholder="Ingres su nombre completo"
-               v-model="fullName"
-        >
+    <form action="#" v-on:submit.prevent="registerUser" autocomplete="off" style="width: 300px">
 
-        <br><br>
+        <div class="mb-3">
+            <label for="full_name" class="form-label">Nombre completo</label>
+            <input type="text"
+                   id="full_name"
+                   name="full_name"
+                   placeholder="Ingres su nombre completo"
+                   v-model="fullName"
+                   class="form-control"
+            >
+        </div>
 
-        <label for="email">Correo Electrónico</label>
-        <input type="email"
-               id="email"
-               placeholder="Ingrese su correo electrónico"
-               v-model="email"
-        >
+        <div class="mb-3">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email"
+                   id="email"
+                   name="email"
+                   placeholder="Ingrese su correo electrónico"
+                   v-model="email"
+                   class="form-control"
+            >
+        </div>
 
-        <br><br>
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password"
+                   id="password"
+                   name="password"
+                   ref="password"
+                   placeholder="Ingrese contraseña"
+                   v-model="password"
+                   class="form-control"
+            >
+        </div>
 
-        <label for="password">Contraseña</label>
-        <input type="password"
-               id="password"
-               ref="password"
-               placeholder="Ingrese contraseña"
-               v-model="password"
-        >
-
-        <br><br>
-
-        <button type="button" v-on:click="showPassword()">
+        <button type="button" v-on:click="showPassword()" class="btn btn-sm btn-warning">
             <span v-if="shownPasswords">Ocultar</span>
             <span v-else>Mostrar</span>
             contraseña
         </button>
 
-        <br><br>
-
-        <label for="confirm_password">Confirmar Contraseña</label>
-        <input type="password"
-               id="confirm_password"
-               ref="confirm_password"
-               placeholder="De nuevo contraseña"
-               v-model="confirmPassword"
-        >
+        <div class="mb-3">
+            <label for="confirm_password" class="form-label">Confirmar Contraseña</label>
+            <input type="password"
+                   id="confirm_password"
+                   name="confirm_password"
+                   ref="confirm_password"
+                   placeholder="De nuevo contraseña"
+                   v-model="confirmPassword"
+                   class="form-control"
+            >
+        </div>
 
         <span v-if="password !== confirmPassword && confirmPassword !== ''">Las contraseñas no coinciden</span>
 
-        <br><br>
-
-        <button type="submit" v-bind:disabled="password !== confirmPassword">
+        <button type="submit" class="btn btn-primary" v-bind:disabled="password !== confirmPassword">
             Registrarme
         </button>
     </form>
@@ -131,11 +147,11 @@ al momento de accionar, debe cambiar el texto del botón por ocultar contraseña
         data: {
             shownPasswords: false,
 
-            fullName: '',
-            email: '',
+            fullName: null,
+            email: null,
 
-            password: '',
-            confirmPassword: '',
+            password: null,
+            confirmPassword: null,
         },
         // las funcionalidades van dentro de la propiedad "methods"
         methods: {
@@ -151,14 +167,67 @@ al momento de accionar, debe cambiar el texto del botón por ocultar contraseña
                 this.$refs.password.type = 'password'
                 this.$refs.confirm_password.type = 'password'
             },
-            sendDataToBackend: function() {
-                console.log("La información del usuario se envió al backend")
-                console.log(this.fullName)
-                console.log(this.email)
-                console.log(this.password)
+            registerUser: function () {
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        accept: 'application/json',
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        'full_name': this.fullName,
+                        'email': this.email,
+                        'password': this.password,
+                        'confirm_password': this.confirmPassword,
+                    }),
+                }
+
+                fetch('http://192.168.1.4/api/1.0/todo/users/register', options)
+                    .then(response => response.json())
+                    .then(response => console.log(response))
+                    .catch(err => console.error(err));
             }
         }
     })
 </script>
 </body>
+
+<!--
+
+La API (servicio, contrato, endpoint) de ToDo
+        1. Registrarme
+            - Contrato de entrada: nombre completo, email, password, confirmPassword
+            - Contrato de salida: Confirmación de registro, Error al registro
+                - La contraseña no coincida
+                - Correo existente
+                - Campos requeridos no enviados
+                - Token de acceso
+        2. Loguearme
+        3. CRUD las tareas
+            - Created => Crear una tarea
+            - Read => Leer tarea o tareas
+            - Update => Editar tarea
+            - Delete => Eliminar tareas
+        4. Poner activa o inactiva la tarea
+
+        La documentación de las API
+        - Contrato de entrada: La información que se suministra al backend
+        - Contrato de salida: Los posibles casos que se presente al momento de
+            consumir el servicio-endpoint-api.
+
+
+Elementos que hacen parte de una API
+- El dominio: donde está la API, puede ser también una IP
+- Versionamiento de la API
+- Métodos de conexión:
+    - POST (la información viaja oculta), crear un registro
+    - GET (la información viaja en la URL, obtener un registro
+    - PUT (lo mismo que POST, pero solo es para actualizar, actualizar un registro
+    - DELETE (lo mismo PUT pero para eliminar, eliminar un registro
+- URL: Nombre del servicio
+- Headers: Parámetros adicionales de comunicación
+- Body de petición: Contrato de entrada
+- Códigos de HTTP: 200 => OK, 422, 500: más info: https://developer.mozilla.org/es/docs/Web/HTTP/Status
+- Body de respuesta: Contrato de salida
+-->
 </html>
